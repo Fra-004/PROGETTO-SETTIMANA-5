@@ -34,7 +34,9 @@ a {
     display: flex;
     flex-direction: column;
     align-items: center;
-    ;
+    position: sticky;         
+    top: 0;
+    z-index: 100;   
 }
 
 .header nav {
@@ -52,7 +54,9 @@ a {
     margin: 0;
     gap: 8px;
 }
-
+.header li{
+    padding: 10px;
+}
 .header h1 {
     margin: 0;
     text-align: center;
@@ -69,11 +73,6 @@ a {
     align-items: center;
     justify-content: center;
 }
-
-
-
-
-
 
 
 /* stilizzazione presentazione chi siamo */
@@ -115,7 +114,6 @@ a {
 .contenitore {
     margin-top: 40px;
     padding: 0 16px;
-    background-color: #fafafa;
 }
 
 .contenitore h3 {
@@ -123,25 +121,22 @@ a {
     text-align: center;
 }
 
-/* ---------- CARD (contenitore padre) ---------- */
+/* CARD (contenitore padre)  */
 .contenitoreLavori {
     display: flex;
     justify-content: center;
-    /* centra le due colonne in orizzontale */
     align-items: center;
-    /* centra le due colonne in verticale */
     width: 100%;
     max-width: 700px;
     height: 300px;
     margin: 20px auto;
     padding: 40px;
-    /* distanza dai bordi del padre */
     background-color: #fff;
     border-radius: 12px;
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
 }
 
-/* ---------- COLONNA SINISTRA: immagine ---------- */
+/*COLONNA SINISTRA: immagine */
 .immagineLavori {
     flex: 0 1 200px;
     min-width: 0;
@@ -156,13 +151,11 @@ a {
     object-fit: cover;
 }
 
-/* ---------- COLONNA DESTRA: pannello ---------- */
+/*  COLONNA DESTRA: commento*/
 .contenitoreCommento {
     flex: 0 1 160px;
-    /*160 è la larghezza del contenitore all'inizio */
     min-width: 0;
     height: 200px;
-    /* stessa altezza dell'immagine */
     display: flex;
     flex-direction: column;
     padding: 0 10px;
@@ -192,7 +185,6 @@ a {
 /* caption + hashtag */
 .descrizioneLavoro {
     flex: 1;
-    /* spinge il resto in basso */
     padding-top: 8px;
 }
 
@@ -203,7 +195,6 @@ a {
 
 .descrizioneLavoro p:last-child {
     color: #4a82b8;
-    /* hashtag azzurro */
 }
 
 /* icone, likes, data */
@@ -217,10 +208,6 @@ a {
     font-size: 11px;
 }
 
-.sezione3 p:first-of-type {
-    font-weight: 700;
-    /* "999 likes" */
-}
 
 .interazione-post {
     display: flex;
@@ -276,6 +263,8 @@ a {
     justify-content: center;
     align-items: center;
     text-align: center;
+    border-radius: 12px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
 
 }
 
@@ -302,6 +291,8 @@ a {
     justify-content: center;
     align-items: center;
     text-align: center;
+    border-radius: 12px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
 }
 
 .cerchio {
@@ -334,36 +325,15 @@ a {
 }
 
 
-/* stilizzazione dicono di noi */
-/* .carosel{
-    background-color: white;
-
-}
-.CardDiconodinoi{
-     display: flex;
-    flex-direction: column;
-    background-color: white;
-    margin-bottom: 10px;
-    width: 50%;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-} */
-
-
 .carosel {
     display: flex;
     overflow-x: hidden;
-    /* nasconde le card fuori schermo, senza barra di scorrimento */
     padding: 30px 0;
-    /* spazio sopra e sotto per la card ingrandita */
 }
 
 .CardDiconodinoi {
     flex: 0 0 260px;
-    /* larghezza fissa, non si restringe */
     margin-right: 16px;
-    /* margin e non gap, così il loop non ha salti */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -409,41 +379,257 @@ footer nav ul {
     gap: 20px;
     padding: 0;
 }
+footer ul li{
+    padding: 10px;
+}
 
 
-
-
-
-
-
-
-
-
-
-
-
-
+/* responsive */
 @media (min-width: 768px) {
     .header {
-        display: flex;
-        padding: 5px 10px;
+        flex-direction: row;
+        justify-content: space-between;
         align-items: center;
+        padding: 10px 40px;
+        background-color: white;
+    }
+
+    .header h1 {
+        font-size: 18px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
     }
 
     .header nav {
-        margin-left: auto;
+        gap: 20px;
     }
 
     .header ul {
+        gap: 24px;
+        font-size: 12px;
+        color: #555;
+    }
+
+    .header button {
+        border: 1px solid #ddd;
+        cursor: pointer;
+    }
+
+    .generale{
         display: flex;
-        list-style: none;
+        flex-wrap: wrap;
     }
 
-    .header h1 {}
+    .contenitoreLavori {
+        width: 48%;
+    }
+    .cardServizi{
+        width: 48%;
+        margin: 7px;
+    }
+    .cardServizi:last-child{
+        width: 100%;
+        margin: 7px;
+    }
+    .CardTeam{
+        width: 48%;
+        margin: 7px;
+    }
+    .CardTeam:last-child{
+        width: 100%;
+        margin: 7px;
+    }
+    .header.scrollato ul {
+        color: white;
+    }
+}
 
-    .header ul li {
-        margin: 0 10px;
+@media (min-width:1200px) {
+    .contenitoreLavori {
+        width: 32%;
+    }
+    .cardServizi{
+        width: 32%;
+        margin: 8px;
+    }
+    .CardTeam{
+        width: 32%;
+        margin: 8px;
+    }
+    .CardTeam:last-child{
+        width: 32%;
+        margin: 7px;
+    }
+    .cardServizi:last-child{
+        width: 32%;
+        margin: 7px;
+    }
+}
+/* stilizzione scroll della pagina */
+.header.scrollato {
+    background-color: hsl(150, 60%, 30%);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+    border-bottom-color: transparent;
+}
+
+.header.scrollato h1,
+.header.scrollato ul {
+    color: white;
+}
+
+.header.scrollato button {
+    color: hsl(150, 60%, 30%);  
+}
+
+
+/* stilizzazione tema scuro */
+body.temaScuro{
+    background-color:#121212 ;
+    color: #f0f0f0;
+}
+.temaScuro :is(.CardTeam, .CardDiconodinoi, .cardServizi, .contenitoreLavori) {
+    background-color: #1e1e1e;;
+}
+.temaScuro .contenitoreLavori :is(p, input){
+    color: white;
+}
+.temaScuro .contenitoreLavori .descrizioneLavoro p:last-child{
+    color: #4a82b8;
+}
+.temaScuro .contenitoreLavori .sezioneCommento input::placeholder {
+    color: white;
+}
+body.temaScuro .contenitoreLavori svg {
+    color: white;
+}
+.temaScuro  .header{
+    background-color: #121212 ;
+}
+
+/* stilizzazione hover */
+li:hover{
+    background-color:hsl(150, 60%, 95%) ;
+    padding: 10px;
+}
+nav button:hover{
+     background-color:hsl(150, 60%, 95%) ;
+}
+
+li:hover a{
+    color: hsl(150, 60%, 30%);
+}
+
+.contenitoreLavori,
+.cardServizi,
+.CardTeam,
+.CardDiconodinoi {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.contenitoreLavori:hover,
+.cardServizi:hover,
+.CardTeam:hover,
+.CardDiconodinoi:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+}
+
+
+/* modale */
+.sfondoModale {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+
+    display: none;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 1000;
+}
+
+.modale {
+    width: 420px;
+    height: 520px;
+    max-width: calc(100vw - 32px);
+
+    background-color: white;
+    border-radius: 12px;
+    padding: 30px;
+
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.chiudiModale {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+
+    border: none;
+    background: none;
+    font-size: 25px;
+    cursor: pointer;
+}
+#formPreventivo {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+#formPreventivo input,
+#formPreventivo select,
+#formPreventivo textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 14px;
+}
+
+#formPreventivo textarea {
+    height: 110px;
+    resize: none;
+}
+
+#formPreventivo button {
+    padding: 12px;
+    border: none;
+    border-radius: 20px;
+    background-color: hsl(150, 60%, 30%);
+    color: white;
+    cursor: pointer;
+}
+.messaggioGrazie {
+    display: none;
+    text-align: center;
+    margin: auto;
+}
+
+.messaggioGrazie h3 {
+    color: hsl(150, 60%, 30%);
+}
+
+.sfondoModale.aperta {
+    display: flex;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
     }
 
-    .header h1 {}
+    to {
+        opacity: 1;
+    }
 }
