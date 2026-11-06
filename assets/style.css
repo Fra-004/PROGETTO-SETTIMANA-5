@@ -5,6 +5,10 @@
     box-sizing: border-box;
 }
 
+p {
+    margin: 0;
+}
+
 body {
     margin: 0;
     font-family: "helvetica", Arial, sans-serif;
@@ -48,6 +52,7 @@ a {
     margin: 0;
     gap: 8px;
 }
+
 .header h1 {
     margin: 0;
     text-align: center;
@@ -74,7 +79,7 @@ a {
 /* stilizzazione presentazione chi siamo */
 .chiSiamo {
     background-color: hsl(150, 60%, 30%);
-    height:70vh;
+    height: 70vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -82,22 +87,24 @@ a {
 }
 
 .chiSiamo h2 {
-   text-align: center;
-   color: white;
-   font-weight: bold;
-   font-size: 25px;
-   margin: 0;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    font-size: 25px;
+    margin: 0;
 }
-.chiSiamo p{
+
+.chiSiamo p {
     color: white;
     padding: 10px;
     text-align: center;
     margin: 0;
     font-size: 12px;
 }
-.chiSiamo button{
+
+.chiSiamo button {
     background-color: white;
-    color: hsl(150, 60%, 30%) ;
+    color: hsl(150, 60%, 30%);
     border-radius: 20px;
     padding: 5px 10px;
     border-color: white;
@@ -105,135 +112,338 @@ a {
 
 
 /* stilizzazione lavori */
-.contenitore{
-    margin-top: 20px;
+.contenitore {
+    margin-top: 40px;
+    padding: 0 16px;
+    background-color: #fafafa;
 }
-.contenitore h3{
+
+.contenitore h3 {
     color: hsl(150, 60%, 30%);
     text-align: center;
 }
+
+/* ---------- CARD (contenitore padre) ---------- */
 .contenitoreLavori {
     display: flex;
     justify-content: center;
+    /* centra le due colonne in orizzontale */
     align-items: center;
-    background-color: white;
-    width: 90%;
-    height: 400px;
+    /* centra le due colonne in verticale */
+    width: 100%;
+    max-width: 700px;
+    height: 300px;
     margin: 20px auto;
-    
+    padding: 40px;
+    /* distanza dai bordi del padre */
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
 }
-  
+
+/* ---------- COLONNA SINISTRA: immagine ---------- */
 .immagineLavori {
-    flex: 6;
-    height: 250px;
-    
+    flex: 0 1 200px;
+    min-width: 0;
+    height: 200px;
+    background-color: #1c1c1c;
 }
+
 .immagineLavori img {
+    display: block;
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
+
+/* ---------- COLONNA DESTRA: pannello ---------- */
 .contenitoreCommento {
-    flex: 4;
-    height: 250px;
+    flex: 0 1 160px;
+    /*160 è la larghezza del contenitore all'inizio */
+    min-width: 0;
+    height: 200px;
+    /* stessa altezza dell'immagine */
+    display: flex;
     flex-direction: column;
+    padding: 0 10px;
+    font-size: 11px;
+    line-height: 1.4;
+    color: #111;
 }
 
-.immagineprofilo img{
-    border-radius: 50%;
-    object-fit: cover;
-    width: 20px;
-    height: 20px;
-    display: inline-block;
-}
+/* profilo */
 .profilo {
     display: flex;
     align-items: center;
-    height: 15%;
-    padding: 10px;
-    border-bottom: 1px solid grey;
-}
-.descrizioneLavoro {
-    height: 40%;
-    border-bottom: 1px solid grey;
-}
-.sezione3 {
-    padding: 10px;
-    height: 30%;
-}
-.sezione3 :last-child{
-    text-align: right;
+    gap: 8px;
+    padding: 10px 0;
+    border-bottom: 1px solid #e6e6e6;
+    font-weight: 700;
 }
 
-.sezioneCommento {
-    height: 10%;
+.immagineprofilo img {
+    display: block;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    object-fit: cover;
 }
+
+/* caption + hashtag */
+.descrizioneLavoro {
+    flex: 1;
+    /* spinge il resto in basso */
+    padding-top: 8px;
+}
+
+.descrizioneLavoro p {
+    margin: 0 0 4px;
+    font-size: 11px;
+}
+
+.descrizioneLavoro p:last-child {
+    color: #4a82b8;
+    /* hashtag azzurro */
+}
+
+/* icone, likes, data */
+.sezione3 {
+    padding-top: 8px;
+    border-top: 1px solid #e6e6e6;
+}
+
+.sezione3 p {
+    margin: 0;
+    font-size: 11px;
+}
+
+.sezione3 p:first-of-type {
+    font-weight: 700;
+    /* "999 likes" */
+}
+
 .interazione-post {
     display: flex;
-    gap: 10px;
-    padding: 5px;
-}
-.contenitoreCommento input {
-    width: 70%;
-}
-
-.contenitoreCommento button {
-    width: 20%;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* responsive intestaazione .header {
-    display: flex;
-    padding: 5px 10px;
+    gap: 8px;
     align-items: center;
+    font-size: 14px;
+    margin-bottom: 2px;
 }
 
-.header nav {
-    margin-left: auto;
-}
-
-.header ul {
+/* commento */
+.sezioneCommento {
     display: flex;
-    list-style: none;
+    align-items: center;
+    gap: 6px;
+    margin-top: 6px;
+    padding: 6px 0;
+    border-top: 1px solid #e6e6e6;
 }
 
-.header h1 {}
-
-.header ul li {
-    margin: 0 10px;
+.sezioneCommento input {
+    flex: 1;
+    min-width: 0;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-family: inherit;
+    font-size: 11px;
+    font-weight: 700;
+    color: #111;
 }
 
-.header h1 {
-    margin: 0;
+.sezioneCommento input::placeholder {
+    color: #111;
+    opacity: 1;
+}
+
+.sezioneCommento button {
+    border: none;
+    background: none;
+    cursor: pointer;
+    padding: 0;
+    font-size: 12px;
+}
+
+/* stilizzazione servizi */
+.cardServizi {
+    display: flex;
+    flex-direction: column;
+    height: 200px;
+    background-color: white;
+    margin-bottom: 10px;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+}
+
+.cardServizi svg {
+    color: hsl(150, 60%, 30%);
+    font-size: 32px;
+}
+
+.cardServizi h4 {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 3px;
+}
+
+
+/* stilizzazione TEAM */
+.CardTeam {
+    display: flex;
+    flex-direction: column;
+    height: 200px;
+    background-color: white;
+    margin-bottom: 10px;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.cerchio {
+    border-radius: 50%;
+    background-color: hsl(150, 60%, 30%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid hsl(150, 50%, 80%);
+}
+
+.cerchio p {
+    color: white;
+    padding: 10px;
+}
+
+.CardTeam p:nth-of-type(1) {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.CardTeam p:nth-of-type(2) {
+    color: hsl(150, 60%, 30%);
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.CardTeam p:nth-of-type(3) {
+    font-size: 12px;
+}
+
+
+/* stilizzazione dicono di noi */
+/* .carosel{
+    background-color: white;
+
+}
+.CardDiconodinoi{
+     display: flex;
+    flex-direction: column;
+    background-color: white;
+    margin-bottom: 10px;
+    width: 50%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 } */
+
+
+.carosel {
+    display: flex;
+    overflow-x: hidden;
+    /* nasconde le card fuori schermo, senza barra di scorrimento */
+    padding: 30px 0;
+    /* spazio sopra e sotto per la card ingrandita */
+}
+
+.CardDiconodinoi {
+    flex: 0 0 260px;
+    /* larghezza fissa, non si restringe */
+    margin-right: 16px;
+    /* margin e non gap, così il loop non ha salti */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 4px;
+    padding: 24px 20px;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* card ingrandita dopo il tocco su telefono */
+.CardDiconodinoi.ingrandita {
+    transform: scale(1.15);
+    z-index: 2;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+footer {
+    background-color: #1a1a1a;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+footer p:nth-of-type(1) {
+    color: hsl(150, 60%, 30%);
+    ;
+}
+
+footer p:nth-of-type(2) {
+    font-size: 14px;
+}
+
+footer nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    gap: 20px;
+    padding: 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (min-width: 768px) {
+    .header {
+        display: flex;
+        padding: 5px 10px;
+        align-items: center;
+    }
+
+    .header nav {
+        margin-left: auto;
+    }
+
+    .header ul {
+        display: flex;
+        list-style: none;
+    }
+
+    .header h1 {}
+
+    .header ul li {
+        margin: 0 10px;
+    }
+
+    .header h1 {}
+}
